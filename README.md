@@ -1,6 +1,6 @@
 # About FengShui project
 
-This is a program for calculating the Chinese calendar, fengshui tables and for interpreting the results. It was published on a CD-disc by a large Russian software publisher «Akella» in 2004.
+This is a program for calculating the Chinese calendar, fengshui tables and for interpreting the results. It was published on a CD-disc by a large Russian software publisher «Akella» www.akella.com in 2004.
 
 This project was written in Delphi in 2003-2004. The whole code of the project, it’s design, writing help and promotions were made by me.
 
@@ -22,7 +22,7 @@ _______________________________
 
 # О проекте FengShui
 
-Это программа расчета китайского календаря, таблиц фэншуй и интерпретация результатов.  Она была опубликована на твердом носителе (CD-disc) крупным российским издательством ПО «Акелла» («Полет Навигатора») http://www.akella.com в 2004 году. 
+Это программа расчета китайского календаря, таблиц фэншуй и интерпретация результатов.  Она была опубликована на твердом носителе (CD-disc) крупным российским издательством ПО «Акелла» («Полет Навигатора») www.akella.com в 2004 году. 
 
 Этот проект был написан в среде Delphi в 2003-2004 годах. Весь программный код проекта, его дизайн, написание справки и продвижение были сделаны мной.
 
