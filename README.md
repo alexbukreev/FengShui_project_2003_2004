@@ -4,12 +4,12 @@ This is a program for calculating the Chinese calendar, fengshui tables and for 
 
 This project was written in Delphi in 2003-2004. The whole code of the project, it’s design, writing help and promotions were made by me.
 
-The contents of the repo
+## The contents of the repo
 
 * Delphi_code contains the source code and files for the project (FengShui 4.1 version)
 * Working_space contains all the required files for the working of the program in Windows
 * Setup.exe — the installer of the program FengShui 4.1 for Windows
-* Disc_covers — covers of the project’s CD
+* Disc_covers — covers of the project’s CD-disc
 
 ## Mentioning of the project in the web
 
@@ -26,7 +26,7 @@ _______________________________
 
 Этот проект был написан в среде Delphi в 2003-2004 годах. Весь программный код проекта, его дизайн, написание справки и продвижение были сделаны мной.
 
-## Содержание repo 
+## Содержание этого repo 
 
 * Delphi_code содержит исходный код и рабочие файлы проекта (версия FengSHui 4.1)
 * Working_space содержит все необходимые файлы для работы программы в среде Windows
