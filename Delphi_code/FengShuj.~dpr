@@ -1,0 +1,72 @@
+program FengShuj;
+
+uses
+  Forms,
+  main in 'main.pas' {FormMainFSH},
+  my_MOON in 'my_MOON.PAS',
+  GoroCircle in 'GoroCircle.pas',
+  Circle in 'Circle.pas' {FormCircle},
+  calendar in 'calendar.pas',
+  season in 'season.pas',
+  SeasonList in 'SeasonList.pas' {FormSeasoneList},
+  text in 'text.pas' {FormText},
+  godday in 'godday.pas' {FormGoodDay},
+  callform in 'callform.pas' {FormCalendar},
+  FhUnit in 'FhUnit.pas' {FormFh},
+  people in 'people.pas' {FormPeople},
+  CzPinSys in 'CzPinSys.pas' {FormCzPin},
+  preference in 'preference.pas' {FormPref},
+  TablePower in 'TablePower.pas' {FormPower},
+  diagVV in 'diagVV.pas' {FormVV},
+  table2 in 'table2.pas' {FormTable2},
+  table4 in 'table4.pas' {FormTable4},
+  table5 in 'table5.pas' {FormTable5},
+  table6 in 'table6.pas' {FormTable6},
+  table7 in 'table7.pas' {FormTable7},
+  line in 'line.pas' {FormLine},
+  table8 in 'table8.pas' {FormTable9},
+  registr in 'registr.pas' {FormRegist},
+  FHinter in 'FHinter.pas' {FormFHInter},
+  UnitBCShema in 'UnitBCShema.pas' {FormBCShema},
+  combo in 'combo.pas' {FormCombo},
+  constell in 'constell.pas' {FormConstell},
+  gua in 'gua.pas' {FormGua},
+  FHCalc in 'FHCalc.pas',
+  MyType in 'MyType.pas',
+  legenda in 'legenda.pas' {FormLegenda},
+  note in 'note.pas' {FormNote},
+  about in 'about.pas' {FormAbout};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.Title := 'FengShui 4.0';
+  Application.CreateForm(TFormMainFSH, FormMainFSH);
+  Application.CreateForm(TFormPref, FormPref);
+  Application.CreateForm(TFormCalendar, FormCalendar);
+  Application.CreateForm(TFormCircle, FormCircle);
+  Application.CreateForm(TFormGoodDay, FormGoodDay);
+  Application.CreateForm(TFormConstell, FormConstell);
+  Application.CreateForm(TFormSeasoneList, FormSeasoneList);
+  Application.CreateForm(TFormTable7, FormTable7);
+  Application.CreateForm(TFormVV, FormVV);
+  Application.CreateForm(TFormBCShema, FormBCShema);
+  Application.CreateForm(TFormPeople, FormPeople);
+  Application.CreateForm(TFormFh, FormFh);
+  Application.CreateForm(TFormPower, FormPower);
+  Application.CreateForm(TFormTable9, FormTable9);
+  Application.CreateForm(TFormTable2, FormTable2);
+  Application.CreateForm(TFormTable4, FormTable4);
+  Application.CreateForm(TFormCzPin, FormCzPin);
+  Application.CreateForm(TFormTable6, FormTable6);
+  Application.CreateForm(TFormTable5, FormTable5);
+  Application.CreateForm(TFormLine, FormLine);
+  Application.CreateForm(TFormCombo, FormCombo);
+  Application.CreateForm(TFormGua, FormGua);
+  Application.CreateForm(TFormLegenda, FormLegenda);
+  Application.CreateForm(TFormNote, FormNote);
+  Application.CreateForm(TFormAbout, FormAbout);
+  Application.CreateForm(TFormRegist, FormRegist);
+  Application.Run;
+end.

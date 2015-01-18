@@ -1,0 +1,232 @@
+unit preference;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, ComCtrls, Registry;
+
+type
+  TFormPref = class(TForm)
+    BitBtn2: TBitBtn;
+    BitBtn1: TBitBtn;
+    GroupBox1: TGroupBox;
+    Button1: TButton;
+    GroupBox2: TGroupBox;
+    EditLetnee: TEdit;
+    UpDown1: TUpDown;
+    ComboGMT: TComboBox;
+    Label1: TLabel;
+    Label2: TLabel;
+    CheckBoxDolgota: TCheckBox;
+    EditDolgota: TEdit;
+    UpDownDolgota: TUpDown;
+    Label3: TLabel;
+    procedure FormCreate(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure CheckBoxDolgotaClick(Sender: TObject);
+    procedure IniPref;
+    procedure IniVariable;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormPref: TFormPref;
+
+implementation
+uses main, callform, Circle, SeasonList, FhUnit, godday, CzPinSys,
+  TableCickl, TablePower, TablePeople, diagVV, table3, table2, table4,
+  table5, table6, table7, line, people, table8, constell, UnitBCShema, gua;
+{$R *.dfm}
+
+procedure TFormPref.FormCreate(Sender: TObject);
+begin
+  Caption:='Установки';
+  GroupBox2.caption:='Время ';
+  Label1.caption:='GMT (Часовой пояс):';
+  Label2.caption:='Летнее время (Л.в.):';
+  CheckBoxDolgota.caption:='Учитывать долготу:';
+  GroupBox1.caption:='Расположение форм и окон';
+  Button1.caption:='Интерфейс «по умолчанию»'; 
+  Label3.caption:='(гр.)';
+
+  IniPref;
+ //IniVariable;
+end;
+
+procedure TFormPref.IniPref;
+var
+MyRegIniFile:TRegIniFile;
+begin
+MyRegIniFile:=TRegIniFile.Create('Software\FengShuj');
+   ComboGMT.ItemIndex:=MyRegIniFile.ReadInteger('Pref','GMT',16);
+   UpDown1.Position:=MyRegIniFile.ReadInteger('Pref','Letnee',0);
+   EditLetnee.Text:=MyRegIniFile.ReadString('Pref','LetneeEdit','0');
+   CheckBoxDolgota.Checked:=MyRegIniFile.ReadBool('Pref','CheckSh',false);
+   UpDownDolgota.Position:=MyRegIniFile.ReadInteger('Pref','Dolgota',37);
+   EditDolgota.Text:=MyRegIniFile.ReadString('Pref','DolgotaEdit','37');
+MyRegIniFile.Free;
+
+if CheckBoxDolgota.Checked then EditDolgota.Enabled:=true
+   else EditDolgota.Enabled:=false;
+end;
+
+//--------------------------------------------------------
+
+procedure TFormPref.BitBtn1Click(Sender: TObject);
+var
+MyRegIniFile:TRegIniFile;
+begin
+MyRegIniFile:=TRegIniFile.Create('Software\FengShuj');
+  MyRegIniFile.WriteInteger('Pref','GMT',ComboGMT.ItemIndex);
+  MyRegIniFile.WriteInteger('Pref','Letnee',UpDown1.Position);
+  MyRegIniFile.WriteString('Pref','LetneeEdit',EditLetnee.Text);
+  MyRegIniFile.WriteBool('Pref','CheckSh',CheckBoxDolgota.Checked);
+  MyRegIniFile.WriteInteger('Pref','DolgotaEdit',UpDownDolgota.Position);
+  MyRegIniFile.WriteString('Pref','Dolgota',EditDolgota.Text);
+MyRegIniFile.Free;
+
+IniVariable;
+end;
+
+//--------------------------------------------------------
+
+procedure TFormPref.Button1Click(Sender: TObject);
+begin
+FormCalendar.Left:=1;
+FormCalendar.Top:=FormMainFSH.Height-FormMainFSH.ClientHeight+50;
+FormCalendar.Height:=503;
+FormCircle.Width:=214;
+FormCalendar.Visible:=true;
+if FormMainFSH.ClientHeight-80<503 then FormCalendar.Height:=FormMainFSH.ClientHeight-80;
+
+FormCircle.Left:=218;
+FormCircle.Top:=FormMainFSH.Height-FormMainFSH.ClientHeight+50;
+FormCircle.Height:=503;
+FormCircle.Width:=573;
+FormCircle.Visible:=true;
+if FormMainFSH.ClientHeight-80<503 then FormMainFSH.ClientHeight:=FormMainFSH.ClientHeight-80;
+
+FormSeasoneList.Left:=Screen.Width-FormSeasoneList.width-2;
+FormSeasoneList.Top:=FormMainFSH.Height-FormMainFSH.ClientHeight+50;
+FormSeasoneList.Height:=FormMainFSH.ClientHeight-80;
+FormSeasoneList.Width:=290;
+FormSeasoneList.Visible:=false;
+
+FormFh.Left:=((screen.Width-FormFh.width)div 2);
+FormFh.Top:=FormMainFSH.Height-FormMainFSH.ClientHeight+50;
+FormFh.Visible:=false;
+
+FormPeople.Left:=((screen.Width-FormPeople.width)div 2);
+FormPeople.Top:=FormMainFSH.Height-FormMainFSH.ClientHeight+50;
+FormPeople.Visible:=false;
+
+FormGoodDay.Left:=((screen.Width-FormGoodDay.width)div 2);
+FormGoodDay.Top:=((screen.Height-FormGoodDay.height) div 2)-2;
+FormGoodDay.Height:=279;
+FormGoodDay.Width:=509;
+FormGoodDay.Visible:=false;
+
+FormConstell.Left:=((screen.Width-FormConstell.width)div 2);
+FormConstell.Top:=((screen.Height-FormConstell.height) div 2)-2;
+FormConstell.Height:=279;
+FormConstell.Width:=509;
+FormConstell.Visible:=false;
+
+FormCzPin.Left:=((screen.Width-FormCzPin.width)div 2);
+FormCzPin.Top:=((screen.Height-FormCzPin.height) div 2);
+FormCzPin.Visible:=false;
+
+FormBCShema.Left:=((screen.Width-FormBCShema.width)div 2);
+FormBCShema.Top:=((screen.Height-FormBCShema.height) div 2);
+FormBCShema.Visible:=false;
+
+FormGua.Left:=((screen.Width-FormGua.width)div 2);
+FormGua.Top:=((screen.Height-FormGua.height) div 2);
+FormGua.Visible:=false;
+
+FormPower.Left:=((screen.Width-FormPower.width)div 2);
+FormPower.Top:=((screen.Height-FormPower.height) div 2);
+FormPower.Visible:=false;
+
+//FormCombo.Left:=((screen.Width-FormCombo.width)div 2);
+//FormCombo.Top:=((screen.Height-FormCombo.height) div 2);
+//FormCombo.Visible:=false;
+
+FormVV.Left:=((screen.Width-FormVV.width)div 2);
+FormVV.Top:=((screen.Height-FormVV.height) div 2);
+FormVV.Visible:=false;
+
+FormTable2.Left:=((screen.Width-FormTable2.width)div 2);
+FormTable2.Top:=((screen.Height-FormTable2.height) div 2);
+FormTable2.Height:=411;
+FormTable2.Width:=439;
+FormTable2.Visible:=false;
+
+FormTable4.Left:=((screen.Width-FormTable4.width)div 2);
+FormTable4.Top:=((screen.Height-FormTable4.height) div 2);
+FormTable4.Visible:=false;
+
+FormTable5.Left:=((screen.Width-FormTable5.width)div 2);
+FormTable5.Top:=((screen.Height-FormTable5.height) div 2);
+FormTable5.Visible:=false;
+
+FormTable6.Left:=((screen.Width-FormTable6.width)div 2);
+FormTable6.Top:=((screen.Height-FormTable6.height) div 2);
+FormTable6.Width:=459;
+FormTable6.Height:=207;
+FormTable6.Visible:=false; 
+
+FormTable7.Left:=((screen.Width-FormTable7.width)div 2);
+FormTable7.Top:=((screen.Height-FormTable7.height) div 2);
+FormTable7.Visible:=false;
+
+//FormBCShema.Left:=((screen.Width-FormBCShema.width)div 2);;
+//FormBCShema.Top:=((screen.Height-FormBCShema.height) div 2);
+//FormBCShema.Visible:=false;
+
+FormLine.Left:=((screen.Width-FormLine.width)div 2);
+FormLine.Top:=((screen.Height-FormLine.height) div 2);
+FormLine.Visible:=false;  
+
+FormTable9.Left:=((screen.Width-FormTable9.width)div 2);
+FormTable9.Top:=((screen.Height-FormTable9.height) div 2);
+FormTable9.Height:=411;
+FormTable9.Width:=451;
+FormTable9.Visible:=false;
+
+FormPref.Close;
+end;
+
+procedure TFormPref.CheckBoxDolgotaClick(Sender: TObject);
+begin
+if CheckBoxDolgota.Checked then EditDolgota.Enabled:=true
+   else EditDolgota.Enabled:=false;
+end;
+
+procedure TFormPref.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+IniPref
+end;
+
+procedure TFormPref.IniVariable;
+var
+DolgotaMyStr:string;
+begin
+FirstYear:=FirstYear+1;
+FormMainFSH.AllCalc(FormMainFSH.MyDate.DateTime);
+
+if CheckBoxDolgota.Checked then DolgotaMyStr:='долгота '+EditDolgota.text+' (гр.)' else
+   DolgotaMyStr:='долгота не учтена';
+
+ FormMainFSH.StatusBarFH.Caption:=' GMT: '+ComboGMT.Text+' | '+'летнее время: '+
+                            EditLetnee.Text+' | '+DolgotaMyStr;
+end;
+
+
+end.

@@ -1,0 +1,51 @@
+unit reg;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls, ShellApi;
+
+type
+  TFormReg = class(TForm)
+    Button1: TButton;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Image1: TImage;
+    Image3: TImage;
+    procedure Label4Click(Sender: TObject);
+    procedure Label5Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormReg: TFormReg;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFormReg.Label4Click(Sender: TObject);
+begin
+ShellExecute(0, nil,'http://www.fs.art-eco.ru',nil,nil,1);
+end;
+
+procedure TFormReg.Label5Click(Sender: TObject);
+begin
+ShellExecute(0, nil,'mailto:support@art-eco.ru?body= &subject=Support Feng Shuj programm',nil,nil,1);
+end;
+
+procedure TFormReg.FormCreate(Sender: TObject);
+begin
+  Caption:='On-line сервисы';
+  Label1.caption:='Страничка в Интернете:';
+  Label2.caption:='Техническая поддержка:';
+end;
+
+end.

@@ -1,0 +1,126 @@
+unit line;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Registry, ComCtrls, StdCtrls, ExtCtrls, Buttons;
+
+type
+  TFormLine = class(TForm)
+    EditLine: TEdit;
+    UpDown1: TUpDown;
+    Label1: TLabel;
+    Line: TImage;
+    Riska: TShape;
+    Label2: TLabel;
+    procedure FormCreate(Sender: TObject);
+    procedure EditLineChange(Sender: TObject);
+    function IntToCoord(index:integer):integer;
+    function Interpritation (index:integer):string;
+    procedure EditLineClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormLine: TFormLine;
+implementation
+uses main;
+{$R *.dfm}
+
+procedure TFormLine.FormCreate(Sender: TObject);
+var
+MyRegIniFile:TRegIniFile;
+begin 
+Caption:='Геомантическая линейка';
+Label1.Caption:='мм';
+Line.Picture.LoadFromFile(FilePlace+'\bmp\line.bmp');
+MyRegIniFile:=TRegIniFile.Create('Software\FengShui');
+   Left:=MyRegIniFile.ReadInteger('Table8','Left',(screen.Width-width)div 2);
+   Top:=MyRegIniFile.ReadInteger('Table8','Top',((screen.Height-height) div 2));
+   Visible:=MyRegIniFile.ReadBool('Table8','Visible',false);
+MyRegIniFile.Free;
+
+Riska.Left:=Line.Left;
+end;
+
+procedure TFormLine.EditLineChange(Sender: TObject);
+var
+index:integer;
+begin
+ try
+   index:=StrToInt(EditLine.Text);
+   if index<0 then EditLine.Text:='0';
+   //EditDayPlus.Text:=EditDayPlus.Text;
+ except
+   EditLine.Text:='0';
+   index:=0;
+ end;
+ index:=IntToCoord(index);
+ Riska.Left:=Line.Left+index;
+ Label2.Caption:=Interpritation (index);
+end;
+
+function TFormLine.IntToCoord(index:integer):integer;
+begin
+ while index>432 do
+ index:=index-432;
+
+ result:=index;
+end;
+
+function TFormLine.Interpritation (index:integer):string;
+begin
+  if index=0 then result:='';
+  case index of
+  1..13:result:='Финансовый успех';
+  14..27:result:='Покой, наполненный ценностями';
+  28..40:result:='Все виды удачи';
+  41..54:result:='Богатство';
+
+  55..68:result:='Денежные потери';
+  69..81:result:='Юридические проблемы';
+  82..95:result:='Неудачи, тюрьма';
+  96..108:result:='Смерть супруга или супруги';
+
+  109..122:result:='Неудачи';
+  123..135:result:='Денежные потери';
+  136..149:result:='Встреча с недобросовестным человеком';
+  150..162:result:='Кража или оргабление';
+
+  163..175:result:='Радость с детьми';
+  176..189:result:='Неожиданный добавочный доход';
+  190..202:result:='Большие успехи у сына';
+  203..215:result:='Хорошее будущее';
+
+  216..229:result:='Успешная сдача экзаменов';
+  230..243:result:='Неожиданная или рискованная удача';
+  244..256:result:='Повышенный доход';
+  257..270:result:='Высокая репутация семьи';
+
+  271..284:result:='Смерть или отъезд';
+  285..297:result:='Потеря необходимого';
+  298..311:result:='Изгнание';
+  312..324:result:='Значительные финансовые потери';
+
+  325..338:result:='Несчастья';
+  339..351:result:='Смерть';
+  352..365:result:='Болезни';
+  366..378:result:='Конфликты';
+
+  379..392:result:='Прилив денег';
+  393..405:result:='Успех на экзаменах';
+  406..419:result:='Достаток в драгоценностях';
+  420..432:result:='Преуспевание';
+  end;
+end;
+
+procedure TFormLine.EditLineClick(Sender: TObject);
+begin
+  EditLine.SelectAll;
+end;
+
+end.

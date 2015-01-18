@@ -1,0 +1,36 @@
+unit AllNames;
+
+interface
+procedure IniAllItems;
+procedure IniStepForm;
+
+implementation
+uses main, step;
+
+procedure IniAllItems;
+begin
+FormMain.Caption:='Chinese astrology';
+FormMain.File1.Caption:='Файл';
+FormMain.LabelRasch.Caption:='Расчет произведен на:';
+FormMain.Label28.Caption:='Знака года:';
+FormMain.Label27.Caption:='Знаки периода:';
+FormMain.Label25.Caption:='Знаки дня:';
+FormMain.Label26.Caption:='Знаки часа:';
+FormMain.CheckBoxRasch.Caption:='Расчитывать';
+FormMain.MoonDLabel.Caption:='Лунный день:';
+FormMain.MoonMLabel.Caption:='Лунный месяц:';
+FormMain.LabelStarLeap.Caption:='(дополнительный)';
+FormMain.LabelCzaCzy.Caption:='Год в системе Цзя-Цзы:';
+FormMain.LabelYearBegin.Caption:='Год от 2636 до н.э.:';
+
+end;
+
+//--------------------------------------------------------
+
+procedure IniStepForm;
+begin
+  StepForm.Label1.Caption:='Шаг: дни';
+  StepForm.Label2.Caption:='ч.м.с.';
+end;
+
+end.

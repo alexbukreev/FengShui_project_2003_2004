@@ -1,0 +1,656 @@
+unit Fh;
+
+interface
+uses ExtCtrls, Graphics, SysUtils, MyType;
+
+procedure FhTable(jung, MyStar:shortint;lico:Single; var st1,st2,st3,st4,st5,st6,
+                  st7,st8,st9:shortint);
+function NineChek(jung:shortint):shortint;
+procedure DrawAllFh (Image:TImage;Normal, FhYearStar, FhMoonStar:boolean;x1,y1,x2,y2:integer;jung:shortint; lico:Single; Style:TDrawStyle);
+
+var z1,z2,z3,z4,z5,z6,z7,z8,z9,
+    ms1,ms2,ms3,ms4,ms5,ms6,ms7,ms8,ms9,
+    fs1,fs2,fs3,fs4,fs5,fs6,fs7,fs8,fs9,
+    ys1,ys2,ys3,ys4,ys5,ys6,ys7,ys8,ys9,
+    mons1,mons2,mons3,mons4,mons5,mons6,mons7,mons8,mons9:shortint;
+
+implementation
+uses calendar, DrawFh, my_moon, FHUnit, main;
+
+//--------------------------------------------------------
+
+procedure FhTable(jung, MyStar:shortint; lico:Single; var st1,st2,st3,st4,st5,st6,
+                  st7,st8,st9:shortint);
+var
+shag:boolean;//true прямой счет
+begin
+ if lico>360 then lico:=lico-360;//для горного направления +180
+case jung of
+1:begin
+ if (lico>352.5) and (lico<361) then shag:=true;
+ if lico=0 then shag:=true;
+ if (lico>0) and (lico<7.5)then shag:=true;
+ if (lico>7.5) and (lico<22.5)then shag:=true; //1
+
+ if (lico>22.5) and (lico<37.5)then shag:=false;
+ if (lico>37.5) and (lico<52.5)then shag:=true;
+ if (lico>52.5) and (lico<67.5)then shag:=true;//8
+
+ if (lico>67.5) and (lico<82.5)then shag:=false;
+ if (lico>82.5) and (lico<97.5)then shag:=true;
+ if (lico>97.5) and (lico<112.5)then shag:=true;//3
+
+ if (lico>112.5) and (lico<127.5)then shag:=true;
+ if (lico>127.5) and (lico<142.5)then shag:=false;
+ if (lico>142.5) and (lico<157.5)then shag:=false;//4
+
+ if (lico>157.5) and (lico<172.5)then shag:=true;
+ if (lico>172.5) and (lico<187.5)then shag:=false;
+ if (lico>187.5) and (lico<202.5)then shag:=false;//9
+
+ if (lico>202.5) and (lico<217.5)then shag:=true;
+ if (lico>217.5) and (lico<232.5) then shag:=false;
+ if (lico>232.5) and (lico<247.5)then shag:=false;//2
+
+ if (lico>247.5) and (lico<262.5)then shag:=true;
+ if (lico>262.5) and (lico<277.5)then shag:=false;
+ if (lico>277.5) and (lico<292.5)then shag:=false;//7
+
+ if (lico>292.5) and (lico<307.5)then shag:=false;
+ if (lico>307.5) and (lico<322.5)then shag:=true;
+ if (lico>322.5) and (lico<337.5)then shag:=true; //6
+ 
+ if (lico>337.5) and (lico<352.5)then shag:=false;
+end;
+2:begin
+ if (lico>352.5) and (lico<361) then shag:=false;
+ if lico=0 then shag:=false;
+ if (lico>0) and (lico<7.5)then shag:=false;
+ if (lico>7.5) and (lico<22.5)then shag:=false; //1
+
+ if (lico>22.5) and (lico<37.5)then shag:=false;
+ if (lico>37.5) and (lico<52.5)then shag:=true;
+ if (lico>52.5) and (lico<67.5)then shag:=true;//8
+
+ if (lico>67.5) and (lico<82.5)then shag:=true;
+ if (lico>82.5) and (lico<97.5)then shag:=false;
+ if (lico>97.5) and (lico<112.5)then shag:=false;//3
+
+ if (lico>112.5) and (lico<127.5)then shag:=true;
+ if (lico>127.5) and (lico<142.5)then shag:=false;
+ if (lico>142.5) and (lico<157.5)then shag:=false;//4
+
+ if (lico>157.5) and (lico<172.5)then shag:=false;
+ if (lico>172.5) and (lico<187.5)then shag:=true;
+ if (lico>187.5) and (lico<202.5)then shag:=true;//9
+
+ if (lico>202.5) and (lico<217.5)then shag:=false;
+ if (lico>217.5) and (lico<232.5) then shag:=true;
+ if (lico>232.5) and (lico<247.5)then shag:=true;//2
+
+ if (lico>247.5) and (lico<262.5)then shag:=false;
+ if (lico>262.5) and (lico<277.5)then shag:=true;
+ if (lico>277.5) and (lico<292.5)then shag:=true;//7
+
+ if (lico>292.5) and (lico<307.5)then shag:=true;
+ if (lico>307.5) and (lico<322.5)then shag:=false;
+ if (lico>322.5) and (lico<337.5)then shag:=false; //6
+
+ if (lico>337.5) and (lico<352.5)then shag:=true;
+end;
+3:begin
+ if (lico>352.5) and (lico<361) then shag:=true;
+ if lico=0 then shag:=true;
+ if (lico>0) and (lico<7.5)then shag:=true;
+ if (lico>7.5) and (lico<22.5)then shag:=true; //1
+
+ if (lico>22.5) and (lico<37.5)then shag:=false;
+ if (lico>37.5) and (lico<52.5)then shag:=true;
+ if (lico>52.5) and (lico<67.5)then shag:=true;//8
+
+ if (lico>67.5) and (lico<82.5)then shag:=true;
+ if (lico>82.5) and (lico<97.5)then shag:=false;
+ if (lico>97.5) and (lico<112.5)then shag:=false;//3
+
+ if (lico>112.5) and (lico<127.5)then shag:=false;
+ if (lico>127.5) and (lico<142.5)then shag:=true;
+ if (lico>142.5) and (lico<157.5)then shag:=true;//4
+
+ if (lico>157.5) and (lico<172.5)then shag:=true;
+ if (lico>172.5) and (lico<187.5)then shag:=false;
+ if (lico>187.5) and (lico<202.5)then shag:=false;//9
+
+ if (lico>202.5) and (lico<217.5)then shag:=true;
+ if (lico>217.5) and (lico<232.5) then shag:=false;
+ if (lico>232.5) and (lico<247.5)then shag:=false;//2
+
+ if (lico>247.5) and (lico<262.5)then shag:=true;
+ if (lico>262.5) and (lico<277.5)then shag:=false;
+ if (lico>277.5) and (lico<292.5)then shag:=false;//7
+
+ if (lico>292.5) and (lico<307.5)then shag:=false;
+ if (lico>307.5) and (lico<322.5)then shag:=true;
+ if (lico>322.5) and (lico<337.5)then shag:=true; //6
+
+ if (lico>337.5) and (lico<352.5)then shag:=false;
+end;
+4:begin
+ if (lico>352.5) and (lico<361) then shag:=false;
+ if lico>=0 then shag:=false;
+ if (lico>0) and (lico<7.5)then shag:=false;
+ if (lico>7.5) and (lico<22.5)then shag:=false; //1
+
+ if (lico>22.5) and (lico<37.5)then shag:=true;
+ if (lico>37.5) and (lico<52.5)then shag:=false;
+ if (lico>52.5) and (lico<67.5)then shag:=false;//8
+
+ if (lico>67.5) and (lico<82.5)then shag:=false;
+ if (lico>82.5) and (lico<97.5)then shag:=true;
+ if (lico>97.5) and (lico<112.5)then shag:=true;//3
+
+ if (lico>112.5) and (lico<127.5)then shag:=true;
+ if (lico>127.5) and (lico<142.5)then shag:=false;
+ if (lico>142.5) and (lico<157.5)then shag:=false;//4
+
+ if (lico>157.5) and (lico<172.5)then shag:=false;
+ if (lico>172.5) and (lico<187.5)then shag:=true;
+ if (lico>187.5) and (lico<202.5)then shag:=true;//9
+
+ if (lico>202.5) and (lico<217.5)then shag:=true;
+ if (lico>217.5) and (lico<232.5) then shag:=false;
+ if (lico>232.5) and (lico<247.5)then shag:=false;//2
+
+ if (lico>247.5) and (lico<262.5)then shag:=false;
+ if (lico>262.5) and (lico<277.5)then shag:=true;
+ if (lico>277.5) and (lico<292.5)then shag:=true;//7
+
+ if (lico>292.5) and (lico<307.5)then shag:=false;
+ if (lico>307.5) and (lico<322.5)then shag:=true;
+ if (lico>322.5) and (lico<337.5)then shag:=true; //6
+
+ if (lico>337.5) and (lico<352.5)then shag:=true;
+end;
+5:begin
+ if (lico>352.5) and (lico<361) then shag:=false;
+ if lico=0 then shag:=false;
+ if (lico>0) and (lico<7.5)then shag:=false;
+ if (lico>7.5) and (lico<22.5)then shag:=false;
+
+ if (lico>22.5) and (lico<37.5)then shag:=false;
+ if (lico>37.5) and (lico<52.5)then shag:=true;
+ if (lico>52.5) and (lico<67.5)then shag:=true;
+
+ if (lico>67.5) and (lico<82.5)then shag:=true;
+ if (lico>82.5) and (lico<97.5)then shag:=false;
+ if (lico>97.5) and (lico<112.5)then shag:=false;
+
+ if (lico>112.5) and (lico<127.5)then shag:=false;
+ if (lico>127.5) and (lico<142.5)then shag:=true;
+ if (lico>142.5) and (lico<157.5)then shag:=true;
+
+ if (lico>157.5) and (lico<172.5)then shag:=true;
+ if (lico>172.5) and (lico<187.5)then shag:=false;
+ if (lico>187.5) and (lico<202.5)then shag:=false;
+
+ if (lico>202.5) and (lico<217.5)then shag:=false;
+ if (lico>217.5) and (lico<232.5) then shag:=true;
+ if (lico>232.5) and (lico<247.5)then shag:=true;
+
+ if (lico>247.5) and (lico<262.5)then shag:=true;
+ if (lico>262.5) and (lico<277.5)then shag:=false;
+ if (lico>277.5) and (lico<292.5)then shag:=false;
+
+ if (lico>292.5) and (lico<307.5)then shag:=false;
+ if (lico>307.5) and (lico<322.5)then shag:=true;
+ if (lico>322.5) and (lico<337.5)then shag:=true;
+ 
+ if (lico>337.5) and (lico<352.5)then shag:=true;
+end;
+6:begin
+ if (lico>352.5) and (lico<361) then shag:=true;
+ if lico>=0 then shag:=true;
+ if (lico>0) and (lico<7.5)then shag:=true;
+ if (lico>7.5) and (lico<22.5)then shag:=true; //1
+
+ if (lico>22.5) and (lico<37.5)then shag:=true;
+ if (lico>37.5) and (lico<52.5)then shag:=false;
+ if (lico>52.5) and (lico<67.5)then shag:=false;//8
+
+ if (lico>67.5) and (lico<82.5)then shag:=false;
+ if (lico>82.5) and (lico<97.5)then shag:=true;
+ if (lico>97.5) and (lico<112.5)then shag:=true;//3
+
+ if (lico>112.5) and (lico<127.5)then shag:=false;
+ if (lico>127.5) and (lico<142.5)then shag:=true;
+ if (lico>142.5) and (lico<157.5)then shag:=true;//4
+
+ if (lico>157.5) and (lico<172.5)then shag:=true;
+ if (lico>172.5) and (lico<187.5)then shag:=false;
+ if (lico>187.5) and (lico<202.5)then shag:=false;//9
+
+ if (lico>202.5) and (lico<217.5)then shag:=true;
+ if (lico>217.5) and (lico<232.5) then shag:=false;
+ if (lico>232.5) and (lico<247.5)then shag:=false;//2
+
+ if (lico>247.5) and (lico<262.5)then shag:=false;
+ if (lico>262.5) and (lico<277.5)then shag:=true;
+ if (lico>277.5) and (lico<292.5)then shag:=true;//7
+
+ if (lico>292.5) and (lico<307.5)then shag:=true;
+ if (lico>307.5) and (lico<322.5)then shag:=false;
+ if (lico>322.5) and (lico<337.5)then shag:=false; //6
+
+ if (lico>337.5) and (lico<352.5)then shag:=false;
+end;
+7:begin
+ if (lico>352.5) and (lico<361) then shag:=false;
+ if lico>=0 then shag:=false;
+ if (lico>0) and (lico<7.5)then shag:=false;
+ if (lico>7.5) and (lico<22.5)then shag:=false; //1
+
+ if (lico>22.5) and (lico<37.5)then shag:=true;
+ if (lico>37.5) and (lico<52.5)then shag:=false;
+ if (lico>52.5) and (lico<67.5)then shag:=false;//8
+
+ if (lico>67.5) and (lico<82.5)then shag:=true;
+ if (lico>82.5) and (lico<97.5)then shag:=false;
+ if (lico>97.5) and (lico<112.5)then shag:=false;//3
+ 
+ if (lico>112.5) and (lico<127.5)then shag:=false;
+ if (lico>127.5) and (lico<142.5)then shag:=true;
+ if (lico>142.5) and (lico<157.5)then shag:=true;//4
+
+ if (lico>157.5) and (lico<172.5)then shag:=false;
+ if (lico>172.5) and (lico<187.5)then shag:=true;
+ if (lico>187.5) and (lico<202.5)then shag:=true;//9
+
+ if (lico>202.5) and (lico<217.5)then shag:=false;
+ if (lico>217.5) and (lico<232.5) then shag:=true;
+ if (lico>232.5) and (lico<247.5)then shag:=true;//2
+
+ if (lico>247.5) and (lico<262.5)then shag:=true;
+ if (lico>262.5) and (lico<277.5)then shag:=false;
+ if (lico>277.5) and (lico<292.5)then shag:=false;//7
+
+ if (lico>292.5) and (lico<307.5)then shag:=false;
+ if (lico>307.5) and (lico<322.5)then shag:=true;
+ if (lico>322.5) and (lico<337.5)then shag:=true; //6
+
+ if (lico>337.5) and (lico<352.5)then shag:=true;
+end;
+8:begin
+ if (lico>352.5) and (lico<361) then shag:=true;
+ if lico>=0 then shag:=true;
+ if (lico>0) and (lico<7.5)then shag:=true;
+ if (lico>7.5) and (lico<22.5)then shag:=true; //1
+
+ if (lico>22.5) and (lico<37.5)then shag:=false;
+ if (lico>37.5) and (lico<52.5)then shag:=true;
+ if (lico>52.5) and (lico<67.5)then shag:=true;//8
+
+ if (lico>67.5) and (lico<82.5)then shag:=false;
+ if (lico>82.5) and (lico<97.5)then shag:=true;
+ if (lico>97.5) and (lico<112.5)then shag:=true;//3
+
+ if (lico>112.5) and (lico<127.5)then shag:=true;
+ if (lico>127.5) and (lico<142.5)then shag:=false;
+ if (lico>142.5) and (lico<157.5)then shag:=false;//4
+
+ if (lico>157.5) and (lico<172.5)then shag:=true;
+ if (lico>172.5) and (lico<187.5)then shag:=false;
+ if (lico>187.5) and (lico<202.5)then shag:=false;//9
+
+ if (lico>202.5) and (lico<217.5)then shag:=false;
+ if (lico>217.5) and (lico<232.5) then shag:=true;
+ if (lico>232.5) and (lico<247.5)then shag:=true;//2
+
+ if (lico>247.5) and (lico<262.5)then shag:=true;
+ if (lico>262.5) and (lico<277.5)then shag:=false;
+ if (lico>277.5) and (lico<292.5)then shag:=false;//7
+
+ if (lico>292.5) and (lico<307.5)then shag:=true;
+ if (lico>307.5) and (lico<322.5)then shag:=false;
+ if (lico>322.5) and (lico<337.5)then shag:=false; //6
+
+ if (lico>337.5) and (lico<352.5)then shag:=false;
+end;
+9:begin
+ if (lico>352.5) and (lico<361) then shag:=false;
+ if lico>=0 then shag:=false;
+ if (lico>0) and (lico<7.5)then shag:=false;
+ if (lico>7.5) and (lico<22.5)then shag:=false; //1
+
+ if (lico>22.5) and (lico<37.5)then shag:=true;
+ if (lico>37.5) and (lico<52.5)then shag:=false;
+ if (lico>52.5) and (lico<67.5)then shag:=false;//8
+
+ if (lico>67.5) and (lico<82.5)then shag:=true;
+ if (lico>82.5) and (lico<97.5)then shag:=false;
+ if (lico>97.5) and (lico<112.5)then shag:=false;//3
+
+ if (lico>112.5) and (lico<127.5)then shag:=false;
+ if (lico>127.5) and (lico<142.5)then shag:=true;
+ if (lico>142.5) and (lico<157.5)then shag:=true;//4
+
+ if (lico>157.5) and (lico<172.5)then shag:=false;
+ if (lico>172.5) and (lico<187.5)then shag:=true;
+ if (lico>187.5) and (lico<202.5)then shag:=true;//9
+
+ if (lico>202.5) and (lico<217.5)then shag:=false;
+ if (lico>217.5) and (lico<232.5) then shag:=true;
+ if (lico>232.5) and (lico<247.5)then shag:=true;//2
+
+ if (lico>247.5) and (lico<262.5)then shag:=false;
+ if (lico>262.5) and (lico<277.5)then shag:=true;
+ if (lico>277.5) and (lico<292.5)then shag:=true;//7
+
+ if (lico>292.5) and (lico<307.5)then shag:=true;
+ if (lico>307.5) and (lico<322.5)then shag:=false;
+ if (lico>322.5) and (lico<337.5)then shag:=false; //6
+
+ if (lico>337.5) and (lico<352.5)then shag:=true;
+end;
+end;
+if lico=-1 then  shag:=true;//принудительный ян
+if lico=-2 then  shag:=false;//принудительный инь
+
+ if shag then
+   begin
+    st1:=NineChek(MyStar);
+    st2:=NineChek(st1+1);
+    st3:=NineChek(st1+2);
+    st4:=NineChek(st1+3);
+    st5:=NineChek(st1+4);
+    st6:=NineChek(st1+5);
+    st7:=NineChek(st1+6);
+    st8:=NineChek(st1+7);
+    st9:=NineChek(st1+8);
+   end;
+
+  if not(shag) then
+   begin
+    st1:=NineChek(MyStar);
+    st2:=NineChek(st1-1);
+    st3:=NineChek(st1-2);
+    st4:=NineChek(st1-3);
+    st5:=NineChek(st1-4);
+    st6:=NineChek(st1-5);
+    st7:=NineChek(st1-6);
+    st8:=NineChek(st1-7);
+    st9:=NineChek(st1-8);
+   end;
+end;
+
+//--------------------------------------------------------
+
+function NineChek(jung:shortint):shortint;
+begin
+  if jung>9 then jung:=jung-9;
+  if jung<1 then jung:=9+jung;
+  result:=jung;
+end;
+
+//--------------------------------------------------------
+
+procedure DrawAllFh (Image:TImage;Normal, FhYearStar, FhMoonStar:boolean;x1,y1,x2,y2:integer;jung:shortint; lico:Single; Style:TDrawStyle);
+var
+index, st1,st2,st3,st4,st5,st6,st7,st8,st9:shortint;
+//Shag:TInJan;
+begin
+  //-------------Рисуем квадрат ------------------
+  FhRectengle(Image, x1,y1,x2,y2);
+
+  //--------------раскрашиваем лицевой квадрат------
+  Image.Canvas.Pen.Color:=clRed;
+  //Image.Canvas.Brush.Color:=$00E0ECFE;
+
+  //---------
+    //-----------инициализация переменных -----------
+
+  //Shag:=ChzhouLuj(ChineseDate(FormFh.FhDate.DateTime+(1/24)).epoch_years);
+
+  if normal then
+   begin
+   case LicoDir(lico) of
+    d_SE:Image.Canvas.Rectangle(x1,y1,x1+(x2 div 3)+1,y1+(y2 div 3)+1);
+    d_S:Image.Canvas.Rectangle(x1+(x2 div 3),y1,x1+2*(x2 div 3)+1,y1+(y2 div 3)+1);
+    d_SW:Image.Canvas.Rectangle(x1+2*(x2 div 3),y1,x2-1,y1+(y2 div 3)+1);
+    d_E:Image.Canvas.Rectangle(x1,y1+(y2 div 3),x1+(x2 div 3)+1,y1+2*(y2 div 3)+1);
+    d_NE:Image.Canvas.Rectangle(x1,y1+2*(y2 div 3),x1+(x2 div 3)+1,y2-1);
+    d_W:Image.Canvas.Rectangle(x1+2*(x2 div 3),y1+(y2 div 3),x2-1,y1+2*(y2 div 3)+1);
+    d_N:Image.Canvas.Rectangle(x1+(x2 div 3),y1+2*(y2 div 3),x1+2*(x2 div 3)+1,y2-1);
+    d_NW:Image.Canvas.Rectangle(x1+2*(x2 div 3),y1+2*(y2 div 3),x2-1,y2-1);
+   end;
+
+
+  //-----------пишем цифры -----------
+  //index:=;ян -1 это условная цифра
+  //if Shag=ij_In then index:=0;//инь
+  FhTable(jung,jung,-1,st1,st2,st3,st4,st5,st6,st7,st8,st9);//Земная основа
+  DrawNumbers (Image,x1,y1,x2,y2,st1,st2,st3,st4,st5,st6,st7,st8,st9, Style);
+
+    //блок инициализации
+    z1:=st1;
+    z2:=st2;
+    z3:=st3;
+    z4:=st4;
+    z5:=st5;
+    z6:=st6;
+    z7:=st7;
+    z8:=st8;
+    z9:=st9;
+    //-----------------
+
+  case LicoDir(lico) of
+     d_SE:Index:=st2;
+     d_S:Index:=st6;
+     d_SW:Index:=st4;
+     d_E:Index:=st3;
+     d_NE:Index:=st7;
+     d_W:Index:=st8;
+     d_N:Index:=st5;
+     d_NW:Index:=st9;
+  end;
+
+
+  FhTable(jung,Index,lico+180,st1,st2,st3,st4,st5,st6,st7,st8,st9);//Горная звезда
+  DrawNumbersStarM (Image,x1,y1,x2,y2,st1,st2,st3,st4,st5,st6,st7,st8,st9, style);
+//блок инициализации
+    ms1:=st1;
+    ms2:=st2;
+    ms3:=st3;
+    ms4:=st4;
+    ms5:=st5;
+    ms6:=st6;
+    ms7:=st7;
+    ms8:=st8;
+    ms9:=st9;
+    //-----------------
+
+  //index:=-1;ян
+  //if Shag=ij_In then index:=0;//инь
+  FhTable(jung,jung,-1,st1,st2,st3,st4,st5,st6,st7,st8,st9);//Земная основа переинициализация
+  case LicoDir(lico) of
+       d_SE:Index:=st9;
+       d_S:Index:=st5;
+       d_SW:Index:=st7;
+       d_E:Index:=st8;
+       d_NE:Index:=st4;
+       d_W:Index:=st3;
+       d_N:Index:=st6;
+       d_NW:Index:=st2;
+  end;
+
+
+  FhTable(jung,Index,lico,st1,st2,st3,st4,st5,st6,st7,st8,st9);//Лицевая звезда ??
+  DrawNumbersStarF (Image,x1,y1,x2,y2,st1,st2,st3,st4,st5,st6,st7,st8,st9,style);
+//блок инициализации-----------
+    fs1:=st1;
+    fs2:=st2;
+    fs3:=st3;
+    fs4:=st4;
+    fs5:=st5;
+    fs6:=st6;
+    fs7:=st7;
+    fs8:=st8;
+    fs9:=st9;
+    //-----------------
+
+
+ //-----------Рисуем годовую звезду------------
+  if FhYearStar then
+    begin
+     //index:=-1;//ян
+     //if JunInJan(ChzhouLuj(Year),JungV)=ij_In then index:=-2;//инь
+     FhTable(-1,YearStar(Year),index,st1,st2,st3,st4,st5,st6,st7,st8,st9);
+     DrawNumbersYearStar (Image,x1,y1,x2,y2,st1,st2,st3,st4,st5,st6,st7,st8,st9,style);
+    //блок инициализации
+    ys1:=st1;
+    ys2:=st2;
+    ys3:=st3;
+    ys4:=st4;
+    ys5:=st5;
+    ys6:=st6;
+    ys7:=st7;
+    ys8:=st8;
+    ys9:=st9;
+    //-----------------
+    end;
+
+
+ //-----------Рисуем месячную звезду------------
+  if FhMoonStar then
+    begin
+     index:=-1;
+     if (CalendarTime>ses7) then if CalendarTime<ses19 then index:=-2;
+     FhTable(Jung,MoonStar(Ymain2,Mmain2{YearStar(Year), Month}),index,st1,st2,st3,st4,st5,st6,st7,st8,st9);
+     DrawNumbersMoonStar (Image,x1,y1,x2,y2,st1,st2,st3,st4,st5,st6,st7,st8,st9,style);
+    //блок инициализации
+    mons1:=st1;
+    mons2:=st2;
+    mons3:=st3;
+    mons4:=st4;
+    mons5:=st5;
+    mons6:=st6;
+    mons7:=st7;
+    mons8:=st8;
+    mons9:=st9;
+    end;
+  end
+
+  //------------
+  else //>>>>>>>>>>>>>>>>>>>>>> для приведенной таблицы
+   begin
+
+
+  //-----------пишем цифры -----------
+    Image.Canvas.Rectangle(x1+(x2 div 3),y1,x1+2*(x2 div 3)+1,y1+(y2 div 3)+1);
+    index:=-1;//ян
+    //if Shag=ij_In then index:=0;//инь
+    FhTable(jung,jung,index,st1,st2,st3,st4,st5,st6,st7,st8,st9);//Земная основа
+       case LicoDir(lico) of
+        d_SE:DrawNumbers (Image,x1,y1,x2,y2,st1,st3,st7,st6,st9,st2,st5,st4,st8, style);
+        d_S:DrawNumbers (Image,x1,y1,x2,y2,st1,st2,st3,st4,st5,st6,st7,st8,st9, style);
+        d_SW:DrawNumbers (Image,x1,y1,x2,y2,st1,st6,st2,st8,st7,st4,st3,st9,st5, style);
+        d_E:DrawNumbers (Image,x1,y1,x2,y2,st1,st7,st5,st2,st8,st3,st9,st6,st4, style);
+        d_NE:DrawNumbers (Image,x1,y1,x2,y2,st1,st5,st9,st3,st4,st7,st8,st2,st6, style);
+        d_W:DrawNumbers (Image,x1,y1,x2,y2,st1,st4,st6,st9,st3,st8,st2,st5,st7, style);
+        d_N:DrawNumbers (Image,x1,y1,x2,y2,st1,st9,st8,st7,st6,st5,st4,st3,st2, style);
+        d_NW:DrawNumbers (Image,x1,y1,x2,y2,st1,st8,st4,st5,st2,st9,st6,st7,st3, style);
+       end;
+
+
+  case LicoDir(lico) of
+     d_SE:Index:=st2;
+     d_S:Index:=st6;
+     d_SW:Index:=st4;
+     d_E:Index:=st3;
+     d_NE:Index:=st7;
+     d_W:Index:=st8;
+     d_N:Index:=st5;
+     d_NW:Index:=st9;
+   end;
+   FhTable(jung,index,lico+180,st1,st2,st3,st4,st5,st6,st7,st8,st9);//Горная звезда
+   case LicoDir(lico) of
+     d_SE:DrawNumbersStarM (Image,x1,y1,x2,y2,st1,st3,st7,st6,st9,st2,st5,st4,st8, style);
+     d_S:DrawNumbersStarM (Image,x1,y1,x2,y2,st1,st2,st3,st4,st5,st6,st7,st8,st9, style);
+     d_SW:DrawNumbersStarM (Image,x1,y1,x2,y2,st1,st6,st2,st8,st7,st4,st3,st9,st5, style);
+     d_E:DrawNumbersStarM (Image,x1,y1,x2,y2,st1,st7,st5,st2,st8,st3,st9,st6,st4, style);
+     d_NE:DrawNumbersStarM (Image,x1,y1,x2,y2,st1,st5,st9,st3,st4,st7,st8,st2,st6, style);
+     d_W:DrawNumbersStarM (Image,x1,y1,x2,y2,st1,st4,st6,st9,st3,st8,st2,st5,st7, style);
+     d_N:DrawNumbersStarM (Image,x1,y1,x2,y2,st1,st9,st8,st7,st6,st5,st4,st3,st2, style);
+     d_NW:DrawNumbersStarM (Image,x1,y1,x2,y2,st1,st8,st4,st5,st2,st9,st6,st7,st3, style);
+   end;
+
+
+  index:=-1;//ян
+  //if Shag=ij_In then index:=0;//инь
+  FhTable(jung,jung,index,st1,st2,st3,st4,st5,st6,st7,st8,st9);//Земная основа переинициализация
+  case LicoDir(lico) of
+     d_SE:Index:=st9;
+     d_S:Index:=st5;
+     d_SW:Index:=st7;
+     d_E:Index:=st8;
+     d_NE:Index:=st4;
+     d_W:Index:=st3;
+     d_N:Index:=st6;
+     d_NW:Index:=st2;
+   end;
+   FhTable(jung,index,lico,st1,st2,st3,st4,st5,st6,st7,st8,st9);//Лицевая звезда
+   case LicoDir(lico) of
+     d_SE:DrawNumbersStarF (Image,x1,y1,x2,y2,st1,st3,st7,st6,st9,st2,st5,st4,st8,style);
+     d_S:DrawNumbersStarF (Image,x1,y1,x2,y2,st1,st2,st3,st4,st5,st6,st7,st8,st9,style);
+     d_SW:DrawNumbersStarF (Image,x1,y1,x2,y2,st1,st6,st2,st8,st7,st4,st3,st9,st5,style);
+     d_E:DrawNumbersStarF (Image,x1,y1,x2,y2,st1,st7,st5,st2,st8,st3,st9,st6,st4,style);
+     d_NE:DrawNumbersStarF (Image,x1,y1,x2,y2,st1,st5,st9,st3,st4,st7,st8,st2,st6,style);
+     d_W:DrawNumbersStarF (Image,x1,y1,x2,y2,st1,st4,st6,st9,st3,st8,st2,st5,st7,style);
+     d_N:DrawNumbersStarF (Image,x1,y1,x2,y2,st1,st9,st8,st7,st6,st5,st4,st3,st2,style);
+     d_NW:DrawNumbersStarF (Image,x1,y1,x2,y2,st1,st8,st4,st5,st2,st9,st6,st7,st3,style);
+   end;
+
+
+//-----------Рисуем годовую звезду------------
+  if FhYearStar then
+    begin
+     //index:=-1;//ян
+     //if JunInJan(ChzhouLuj(Year),JungV)=ij_In then index:=-2;//инь
+     FhTable(-1,YearStar(Year),index,st1,st2,st3,st4,st5,st6,st7,st8,st9);
+    case LicoDir(lico) of
+     d_SE:DrawNumbersYearStar (Image,x1,y1,x2,y2,st1,st3,st7,st6,st9,st2,st5,st4,st8,style);
+     d_S:DrawNumbersYearStar (Image,x1,y1,x2,y2,st1,st2,st3,st4,st5,st6,st7,st8,st9,style);
+     d_SW:DrawNumbersYearStar (Image,x1,y1,x2,y2,st1,st6,st2,st8,st7,st4,st3,st9,st5,style);
+     d_E:DrawNumbersYearStar (Image,x1,y1,x2,y2,st1,st7,st5,st2,st8,st3,st9,st6,st4,style);
+     d_NE:DrawNumbersYearStar (Image,x1,y1,x2,y2,st1,st5,st9,st3,st4,st7,st8,st2,st6,style);
+     d_W:DrawNumbersYearStar (Image,x1,y1,x2,y2,st1,st4,st6,st9,st3,st8,st2,st5,st7,style);
+     d_N:DrawNumbersYearStar (Image,x1,y1,x2,y2,st1,st9,st8,st7,st6,st5,st4,st3,st2,style);
+     d_NW:DrawNumbersYearStar (Image,x1,y1,x2,y2,st1,st8,st4,st5,st2,st9,st6,st7,st3,style);
+    end;
+    end;
+
+
+//-----------Рисуем месячную звезду------------
+  if FhMoonStar then
+    begin
+     index:=-1;
+     if (CalendarTime>ses7) then if CalendarTime<ses19 then index:=-2;
+     FhTable(jung,MoonStar(Ymain2,Mmain2),index,st1,st2,st3,st4,st5,st6,st7,st8,st9);
+    case LicoDir(lico) of
+     d_SE:DrawNumbersMoonStar (Image,x1,y1,x2,y2,st1,st3,st7,st6,st9,st2,st5,st4,st8,style);
+     d_S:DrawNumbersMoonStar (Image,x1,y1,x2,y2,st1,st2,st3,st4,st5,st6,st7,st8,st9,style);
+     d_SW:DrawNumbersMoonStar (Image,x1,y1,x2,y2,st1,st6,st2,st8,st7,st4,st3,st9,st5,style);
+     d_E:DrawNumbersMoonStar (Image,x1,y1,x2,y2,st1,st7,st5,st2,st8,st3,st9,st6,st4,style);
+     d_NE:DrawNumbersMoonStar (Image,x1,y1,x2,y2,st1,st5,st9,st3,st4,st7,st8,st2,st6,style);
+     d_W:DrawNumbersMoonStar (Image,x1,y1,x2,y2,st1,st4,st6,st9,st3,st8,st2,st5,st7,style);
+     d_N:DrawNumbersMoonStar (Image,x1,y1,x2,y2,st1,st9,st8,st7,st6,st5,st4,st3,st2,style);
+     d_NW:DrawNumbersMoonStar (Image,x1,y1,x2,y2,st1,st8,st4,st5,st2,st9,st6,st7,st3,style);
+    end;
+    end
+   end;
+
+end;
+
+//--------------------------------------------------------
+
+
+end.
+

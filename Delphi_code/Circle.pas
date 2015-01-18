@@ -1,0 +1,70 @@
+unit Circle;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls, Registry;
+
+type
+  TFormCircle = class(TForm)
+    Image2: TImage;
+    Label9: TLabel;
+    Label8: TLabel;
+    Label7: TLabel;
+    Label6: TLabel;
+    Label5: TLabel;
+    Label4: TLabel;
+    Label3: TLabel;
+    Label24: TLabel;
+    Label23: TLabel;
+    Label22: TLabel;
+    Label21: TLabel;
+    Label20: TLabel;
+    Label2: TLabel;
+    Label19: TLabel;
+    Label18: TLabel;
+    Label17: TLabel;
+    Label16: TLabel;
+    Label15: TLabel;
+    Label14: TLabel;
+    Label13: TLabel;
+    Label12: TLabel;
+    Label11: TLabel;
+    Label10: TLabel;
+    Label1: TLabel;
+    Image1: TImage;
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormCircle: TFormCircle;
+
+implementation
+uses GoroCircle, main, preference;
+{$R *.dfm}
+
+procedure TFormCircle.FormCreate(Sender: TObject);
+var
+MyRegIniFile:TRegIniFile;
+begin
+  Caption:='Круг эклиптики';
+  MyRegIniFile:=TRegIniFile.Create('Software\FengShui');
+   Left:=MyRegIniFile.ReadInteger('Circle','Left',218);
+   Top:=MyRegIniFile.ReadInteger('Circle','Top',FormMainFSH.Height-FormMainFSH.ClientHeight+50);
+   Height:=MyRegIniFile.ReadInteger('Circle','Height',503);
+   Width:=MyRegIniFile.ReadInteger('Circle','Width',573);
+  Visible:=MyRegIniFile.ReadBool('Circle','Visible',true);
+if FormMainFSH.ClientHeight-80<503 then FormMainFSH.ClientHeight:=FormMainFSH.ClientHeight-80;
+
+  MyRegIniFile.Free;
+
+  Image2.Picture.LoadFromFile(FilePlace+'\bmp\diag.bmp');
+  Gorodraw(now);
+end;
+
+end.

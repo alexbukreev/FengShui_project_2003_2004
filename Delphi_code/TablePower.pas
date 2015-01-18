@@ -1,0 +1,98 @@
+unit TablePower;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Registry, StdCtrls, ExtCtrls;
+
+type
+  TFormPower = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label12: TLabel;
+    Shape1: TShape;
+    Shape3: TShape;
+    Shape4: TShape;
+    Shape5: TShape;
+    Shape6: TShape;
+    Shape7: TShape;
+    Shape8: TShape;
+    Shape9: TShape;
+    Shape10: TShape;
+    Shape11: TShape;
+    Shape2: TShape;
+    Label11: TLabel;
+    Label13: TLabel;
+    Label14: TLabel;
+    Label15: TLabel;
+    Label16: TLabel;
+    Label17: TLabel;
+    Label18: TLabel;
+    Label19: TLabel;
+    Label20: TLabel;
+    Shape12: TShape;
+    Shape13: TShape;
+    Shape14: TShape;
+    Shape15: TShape;
+    Shape16: TShape;
+    Shape17: TShape;
+    Shape18: TShape;
+    Shape19: TShape;
+    Shape20: TShape;
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormPower: TFormPower;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFormPower.FormCreate(Sender: TObject);
+var
+MyRegIniFile:TRegIniFile;
+begin 
+  Caption:='Соотношение ян/инь звезд';
+  Label1.Caption:='Звезды ян';
+  Label8.Caption:='1 белая (Вода)';
+  Label4.Caption:='2 черная (Почва)';
+  Label6.Caption:='3 бирюзовая (Дерево)';
+  Label7.Caption:='4 зеленая (Дерево)';
+  Label3.Caption:='5 желтая (Почва)';
+  Label9.Caption:='6 белая (Металл)';
+  Label5.Caption:='7 алая (Металл)';
+  Label10.Caption:='8 белая (Почва)';
+  Label2.Caption:='9 пурпурная (Огонь)';
+  Label12.Caption:='Звезды инь';
+  Label18.Caption:='5 желтая (Почва)';
+  Label14.Caption:='4 зеленая (Дерево)';
+  Label16.Caption:='3 бирюзовая (Дерево)';
+  Label17.Caption:='2 черная (Почва)';
+  Label13.Caption:='1 белыая (Вода)';
+  Label19.Caption:='9 пурпурная (Огонь)';
+  Label15.Caption:='8 белая (Почва)';
+  Label20.Caption:='7 алая (Металл)';
+  Label11.Caption:='6 белая (Металл)';
+
+MyRegIniFile:=TRegIniFile.Create('Software\FengShui');
+   Left:=MyRegIniFile.ReadInteger('Power','Left',(screen.Width-width)div 2);
+   Top:=MyRegIniFile.ReadInteger('Power','Top',((screen.Height-height) div 2));
+   Visible:=MyRegIniFile.ReadBool('Power','Visible',false);
+MyRegIniFile.Free;
+end;
+
+end.

@@ -1,0 +1,25 @@
+object FormFirst: TFormFirst
+  Left = 292
+  Top = 195
+  BorderStyle = bsNone
+  Caption = 'FormFirst'
+  ClientHeight = 336
+  ClientWidth = 401
+  Color = clMoneyGreen
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  FormStyle = fsStayOnTop
+  OldCreateOrder = False
+  Position = poScreenCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Timer1: TTimer
+    Interval = 3000
+    OnTimer = Timer1Timer
+    Left = 24
+    Top = 16
+  end
+end

@@ -1,0 +1,1481 @@
+object FormPeople: TFormPeople
+  Left = 242
+  Top = 204
+  HorzScrollBar.Visible = False
+  VertScrollBar.Visible = False
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsToolWindow
+  Caption = #1055#1077#1088#1089#1086#1085#1072#1083#1100#1085#1099#1081' '#1075#1086#1088#1086#1089#1082#1086#1087
+  ClientHeight = 378
+  ClientWidth = 623
+  Color = clWhite
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  FormStyle = fsStayOnTop
+  Menu = MainMenu1
+  OldCreateOrder = False
+  PopupMenu = PopupMenu1
+  OnClose = FormClose
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  OnResize = FormResize
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Shape3: TShape
+    Left = 219
+    Top = 120
+    Width = 398
+    Height = 67
+    Brush.Style = bsClear
+    Pen.Color = clMaroon
+    Visible = False
+  end
+  object StvolDay: TImage
+    Left = 14
+    Top = 226
+    Width = 20
+    Height = 22
+  end
+  object StvolChas: TImage
+    Left = 14
+    Top = 295
+    Width = 20
+    Height = 22
+  end
+  object Label25: TLabel
+    Left = 65
+    Top = 229
+    Width = 57
+    Height = 13
+    Cursor = crHandPoint
+    Caption = '('#1079#1085#1072#1082#1080' '#1076#1085#1103')'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsUnderline]
+    ParentFont = False
+    OnClick = Label25Click
+  end
+  object Label26: TLabel
+    Left = 65
+    Top = 298
+    Width = 62
+    Height = 13
+    Cursor = crHandPoint
+    Caption = '('#1079#1085#1072#1082#1080' '#1095#1072#1089#1072')'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsUnderline]
+    ParentFont = False
+    OnClick = Label26Click
+  end
+  object Label27: TLabel
+    Left = 65
+    Top = 174
+    Width = 81
+    Height = 13
+    Cursor = crHandPoint
+    Caption = '('#1079#1085#1072#1082#1080' '#1087#1077#1088#1080#1086#1076#1072')'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsUnderline]
+    ParentFont = False
+    OnClick = Label27Click
+  end
+  object Label28: TLabel
+    Left = 65
+    Top = 117
+    Width = 62
+    Height = 13
+    Cursor = crHandPoint
+    Caption = '('#1079#1085#1072#1082#1080' '#1075#1086#1076#1072')'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsUnderline]
+    ParentFont = False
+    OnClick = Label28Click
+  end
+  object VetvChas: TImage
+    Left = 38
+    Top = 295
+    Width = 20
+    Height = 22
+  end
+  object VetvDay: TImage
+    Left = 38
+    Top = 226
+    Width = 20
+    Height = 22
+  end
+  object StvolYahr: TImage
+    Left = 14
+    Top = 114
+    Width = 20
+    Height = 22
+  end
+  object VetvYahr: TImage
+    Left = 38
+    Top = 114
+    Width = 20
+    Height = 22
+  end
+  object StvolMod: TImage
+    Left = 14
+    Top = 171
+    Width = 20
+    Height = 22
+  end
+  object VetvGod: TImage
+    Left = 38
+    Top = 171
+    Width = 20
+    Height = 22
+  end
+  object PSYear: TLabel
+    Left = 9
+    Top = 139
+    Width = 12
+    Height = 13
+    Caption = '***'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object PSMon: TLabel
+    Left = 9
+    Top = 196
+    Width = 12
+    Height = 13
+    Caption = '***'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object PSDay: TLabel
+    Left = 9
+    Top = 251
+    Width = 12
+    Height = 13
+    Caption = '***'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object PSHour: TLabel
+    Left = 9
+    Top = 320
+    Width = 20
+    Height = 13
+    Caption = #1093#1093#1093#1093
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object YearStar: TLabel
+    Left = 223
+    Top = 63
+    Width = 112
+    Height = 13
+    Caption = #1047#1074#1077#1079#1076#1099' '#1088#1086#1078#1076#1077#1085#1080#1103':'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clGreen
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object LabelYearStar: TLabel
+    Left = 296
+    Top = 125
+    Width = 25
+    Height = 13
+    Cursor = crHandPoint
+    Caption = 'xxxx'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold, fsUnderline]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+    OnClick = LabelYearStarClick
+  end
+  object Shape2: TShape
+    Left = 213
+    Top = 62
+    Width = 1
+    Height = 292
+    Brush.Style = bsClear
+    Pen.Color = clGray
+  end
+  object Label2: TLabel
+    Left = 9
+    Top = 269
+    Width = 110
+    Height = 13
+    Caption = #1057#1090#1074#1086#1083' '#1076#1085#1103' '#1088#1086#1078#1076#1077#1085#1080#1103': '
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clGreen
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object LabelStvolSin: TLabel
+    Left = 118
+    Top = 269
+    Width = 37
+    Height = 13
+    Cursor = crHandPoint
+    Caption = #1084#1077#1090#1072#1083#1083
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsUnderline]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+    OnClick = LabelStvolSinClick
+  end
+  object LabeBaczi: TLabel
+    Left = 224
+    Top = 165
+    Width = 94
+    Height = 13
+    Cursor = crHandPoint
+    Caption = #1057#1080#1089#1090#1077#1084#1072' '#1041#1072' '#1095#1078#1072#1081': '
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsUnderline]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+    OnClick = LabeBacziClick
+  end
+  object LabelRasch: TLabel
+    Left = 8
+    Top = 62
+    Width = 101
+    Height = 13
+    Caption = #1056#1072#1089#1095#1077#1090' '#1087#1088#1086#1080#1079#1074#1077#1076#1077#1085':'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object LabelNow: TLabel
+    Left = 8
+    Top = 82
+    Width = 19
+    Height = 13
+    Caption = 'xxx'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object LabelJung: TLabel
+    Left = 224
+    Top = 83
+    Width = 112
+    Height = 13
+    Caption = #1041#1086#1083#1100#1096#1086#1081' '#1102#1085#1100' (60 '#1083#1077#1090'):'
+  end
+  object JungBig: TLabel
+    Left = 343
+    Top = 83
+    Width = 20
+    Height = 13
+    Caption = 'xxxx'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+  end
+  object Jung: TLabel
+    Left = 333
+    Top = 102
+    Width = 20
+    Height = 13
+    Caption = 'xxxx'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+  end
+  object Label1: TLabel
+    Left = 224
+    Top = 102
+    Width = 102
+    Height = 13
+    Caption = #1052#1072#1083#1099#1081' '#1102#1085#1100' (20 '#1083#1077#1090'):'
+  end
+  object Label12: TLabel
+    Left = 224
+    Top = 125
+    Width = 66
+    Height = 13
+    Caption = #1047#1074#1077#1079#1076#1072' '#1075#1086#1076#1072':'
+  end
+  object LabelMoonStar: TLabel
+    Left = 310
+    Top = 191
+    Width = 20
+    Height = 13
+    Caption = 'xxxx'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+  end
+  object MoonStar: TLabel
+    Left = 224
+    Top = 191
+    Width = 81
+    Height = 13
+    Caption = #1047#1074#1077#1079#1076#1072' '#1084#1077#1089#1103#1094#1072':'
+  end
+  object Shape1: TShape
+    Left = 5
+    Top = 103
+    Width = 202
+    Height = 1
+    Brush.Style = bsClear
+    Pen.Color = clMaroon
+  end
+  object WeekRod: TLabel
+    Left = 131
+    Top = 82
+    Width = 15
+    Height = 13
+    Caption = 'xxx'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object LabelDayStar: TLabel
+    Left = 291
+    Top = 210
+    Width = 20
+    Height = 13
+    Caption = 'xxxx'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+  end
+  object DayStar: TLabel
+    Left = 224
+    Top = 210
+    Width = 61
+    Height = 13
+    Caption = #1047#1074#1077#1079#1076#1072' '#1076#1085#1103':'
+  end
+  object ChasStar: TLabel
+    Left = 224
+    Top = 229
+    Width = 66
+    Height = 13
+    Caption = #1047#1074#1077#1079#1076#1072' '#1095#1072#1089#1072':'
+  end
+  object LabelChasStar: TLabel
+    Left = 296
+    Top = 229
+    Width = 20
+    Height = 13
+    Caption = 'xxxx'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+  end
+  object Label3: TLabel
+    Left = 224
+    Top = 144
+    Width = 257
+    Height = 13
+    Cursor = crHandPoint
+    Caption = #1055#1088#1086#1075#1085#1086#1079' '#1085#1072' '#1090#1077#1082#1091#1097#1080#1081' '#1075#1086#1076' '#1087#1086' '#1079#1074#1077#1079#1076#1077' '#1075#1086#1076#1072' '#1088#1086#1078#1076#1077#1085#1080#1103
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsUnderline]
+    ParentFont = False
+    Visible = False
+    OnClick = Label3Click
+  end
+  object Shape5: TShape
+    Left = 259
+    Top = 275
+    Width = 1
+    Height = 79
+    Brush.Style = bsClear
+    Pen.Color = clGray
+    Visible = False
+  end
+  object Shape6: TShape
+    Left = 304
+    Top = 275
+    Width = 1
+    Height = 79
+    Brush.Style = bsClear
+    Pen.Color = clGray
+    Visible = False
+  end
+  object Shape7: TShape
+    Left = 350
+    Top = 275
+    Width = 1
+    Height = 79
+    Brush.Style = bsClear
+    Pen.Color = clGray
+    Visible = False
+  end
+  object Shape8: TShape
+    Left = 396
+    Top = 275
+    Width = 1
+    Height = 79
+    Brush.Style = bsClear
+    Pen.Color = clGray
+    Visible = False
+  end
+  object Shape9: TShape
+    Left = 441
+    Top = 275
+    Width = 1
+    Height = 79
+    Brush.Style = bsClear
+    Pen.Color = clGray
+    Visible = False
+  end
+  object Shape10: TShape
+    Left = 487
+    Top = 275
+    Width = 1
+    Height = 79
+    Brush.Style = bsClear
+    Pen.Color = clGray
+    Visible = False
+  end
+  object Shape11: TShape
+    Left = 533
+    Top = 275
+    Width = 1
+    Height = 79
+    Brush.Style = bsClear
+    Pen.Color = clGray
+    Visible = False
+  end
+  object Shape12: TShape
+    Left = 579
+    Top = 275
+    Width = 1
+    Height = 79
+    Brush.Style = bsClear
+    Pen.Color = clGray
+    Visible = False
+  end
+  object Shape13: TShape
+    Left = 220
+    Top = 286
+    Width = 398
+    Height = 1
+    Brush.Style = bsClear
+    Pen.Color = clGray
+    Visible = False
+  end
+  object ImageS9: TImage
+    Left = 228
+    Top = 300
+    Width = 20
+    Height = 22
+    ParentShowHint = False
+    ShowHint = True
+    Visible = False
+  end
+  object ImageV9: TImage
+    Left = 228
+    Top = 327
+    Width = 20
+    Height = 22
+    ParentShowHint = False
+    ShowHint = True
+    Visible = False
+  end
+  object ImageV8: TImage
+    Left = 271
+    Top = 327
+    Width = 20
+    Height = 22
+    ParentShowHint = False
+    ShowHint = True
+    Visible = False
+  end
+  object ImageS8: TImage
+    Left = 271
+    Top = 300
+    Width = 20
+    Height = 22
+    ParentShowHint = False
+    ShowHint = True
+    Visible = False
+  end
+  object ImageV7: TImage
+    Left = 317
+    Top = 327
+    Width = 20
+    Height = 22
+    ParentShowHint = False
+    ShowHint = True
+    Visible = False
+  end
+  object ImageS7: TImage
+    Left = 317
+    Top = 300
+    Width = 20
+    Height = 22
+    ParentShowHint = False
+    ShowHint = True
+    Visible = False
+  end
+  object ImageV6: TImage
+    Left = 364
+    Top = 327
+    Width = 20
+    Height = 22
+    ParentShowHint = False
+    ShowHint = True
+    Visible = False
+  end
+  object ImageS6: TImage
+    Left = 364
+    Top = 300
+    Width = 20
+    Height = 22
+    ParentShowHint = False
+    ShowHint = True
+    Visible = False
+  end
+  object ImageV5: TImage
+    Left = 409
+    Top = 327
+    Width = 20
+    Height = 22
+    ParentShowHint = False
+    ShowHint = True
+    Visible = False
+  end
+  object ImageS5: TImage
+    Left = 409
+    Top = 300
+    Width = 20
+    Height = 22
+    ParentShowHint = False
+    ShowHint = True
+    Visible = False
+  end
+  object ImageV4: TImage
+    Left = 455
+    Top = 327
+    Width = 20
+    Height = 22
+    ParentShowHint = False
+    ShowHint = True
+    Visible = False
+  end
+  object ImageS4: TImage
+    Left = 455
+    Top = 300
+    Width = 20
+    Height = 22
+    ParentShowHint = False
+    ShowHint = True
+    Visible = False
+  end
+  object ImageV3: TImage
+    Left = 500
+    Top = 327
+    Width = 20
+    Height = 22
+    ParentShowHint = False
+    ShowHint = True
+    Visible = False
+  end
+  object ImageS3: TImage
+    Left = 500
+    Top = 300
+    Width = 20
+    Height = 22
+    ParentShowHint = False
+    ShowHint = True
+    Visible = False
+  end
+  object ImageV2: TImage
+    Left = 547
+    Top = 327
+    Width = 20
+    Height = 22
+    ParentShowHint = False
+    ShowHint = True
+    Visible = False
+  end
+  object ImageS2: TImage
+    Left = 547
+    Top = 300
+    Width = 20
+    Height = 22
+    ParentShowHint = False
+    ShowHint = True
+    Visible = False
+  end
+  object ImageV1: TImage
+    Left = 591
+    Top = 327
+    Width = 20
+    Height = 22
+    ParentShowHint = False
+    ShowHint = True
+    Visible = False
+  end
+  object ImageS1: TImage
+    Left = 591
+    Top = 300
+    Width = 20
+    Height = 22
+    ParentShowHint = False
+    ShowHint = True
+    Visible = False
+  end
+  object Label4: TLabel
+    Left = 224
+    Top = 252
+    Width = 86
+    Height = 13
+    Caption = #1057#1090#1086#1083#1087#1099' '#1091#1076#1072#1095#1080':'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clGreen
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Visible = False
+  end
+  object LabelSt9: TLabel
+    Left = 231
+    Top = 272
+    Width = 12
+    Height = 13
+    Alignment = taCenter
+    Caption = '00'
+    Color = clWhite
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clMaroon
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentColor = False
+    ParentFont = False
+    Visible = False
+  end
+  object LabelSt8: TLabel
+    Left = 276
+    Top = 272
+    Width = 12
+    Height = 13
+    Alignment = taCenter
+    Caption = '00'
+    Color = clWhite
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clMaroon
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentColor = False
+    ParentFont = False
+    Visible = False
+  end
+  object LabelSt7: TLabel
+    Left = 321
+    Top = 272
+    Width = 12
+    Height = 13
+    Alignment = taCenter
+    Caption = '00'
+    Color = clWhite
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clMaroon
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentColor = False
+    ParentFont = False
+    Visible = False
+  end
+  object LabelSt6: TLabel
+    Left = 367
+    Top = 272
+    Width = 12
+    Height = 13
+    Alignment = taCenter
+    Caption = '00'
+    Color = clWhite
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clMaroon
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentColor = False
+    ParentFont = False
+    Visible = False
+  end
+  object LabelSt5: TLabel
+    Left = 412
+    Top = 272
+    Width = 12
+    Height = 13
+    Alignment = taCenter
+    Caption = '00'
+    Color = clWhite
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clMaroon
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentColor = False
+    ParentFont = False
+    Visible = False
+  end
+  object LabelSt4: TLabel
+    Left = 457
+    Top = 272
+    Width = 12
+    Height = 13
+    Alignment = taCenter
+    Caption = '00'
+    Color = clWhite
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clMaroon
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentColor = False
+    ParentFont = False
+    Visible = False
+  end
+  object LabelSt3: TLabel
+    Left = 503
+    Top = 272
+    Width = 12
+    Height = 13
+    Alignment = taCenter
+    Caption = '00'
+    Color = clWhite
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clMaroon
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentColor = False
+    ParentFont = False
+    Visible = False
+  end
+  object LabelSt2: TLabel
+    Left = 548
+    Top = 272
+    Width = 12
+    Height = 13
+    Alignment = taCenter
+    Caption = '00'
+    Color = clWhite
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clMaroon
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentColor = False
+    ParentFont = False
+    Visible = False
+  end
+  object LabelSt1: TLabel
+    Left = 594
+    Top = 272
+    Width = 12
+    Height = 13
+    Alignment = taCenter
+    Caption = '00'
+    Color = clWhite
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clMaroon
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentColor = False
+    ParentFont = False
+    Visible = False
+  end
+  object CoolBar1: TCoolBar
+    Left = 0
+    Top = 0
+    Width = 623
+    Height = 28
+    AutoSize = True
+    BandBorderStyle = bsNone
+    Bands = <
+      item
+        Control = ToolBar1
+        ImageIndex = -1
+        MinHeight = 26
+        Width = 621
+      end>
+    Color = clWhite
+    EdgeOuter = esNone
+    FixedOrder = True
+    ParentColor = False
+    object ToolBar1: TToolBar
+      Left = 0
+      Top = 0
+      Width = 617
+      Height = 26
+      BorderWidth = 1
+      ButtonHeight = 21
+      Caption = 'ToolBar1'
+      EdgeBorders = []
+      EdgeInner = esNone
+      EdgeOuter = esNone
+      Flat = True
+      TabOrder = 0
+      object Panel3: TPanel
+        Left = 0
+        Top = 0
+        Width = 33
+        Height = 21
+        BevelOuter = bvNone
+        Caption = #1048#1084#1103':'
+        Color = clWhite
+        TabOrder = 5
+      end
+      object EditNamePeople: TEdit
+        Left = 33
+        Top = 0
+        Width = 178
+        Height = 21
+        TabOrder = 0
+        OnChange = EditNamePeopleChange
+      end
+      object ToolButton4: TToolButton
+        Left = 211
+        Top = 0
+        Width = 8
+        Caption = 'ToolButton4'
+        ImageIndex = 3
+        Style = tbsSeparator
+      end
+      object Panel7: TPanel
+        Left = 219
+        Top = 0
+        Width = 87
+        Height = 21
+        BevelOuter = bvNone
+        Caption = #1044#1072#1090#1072' '#1088#1086#1078#1076#1077#1085#1080#1103':'
+        Color = clWhite
+        TabOrder = 6
+      end
+      object MyDate: TProfDateTimePicker
+        Left = 306
+        Top = 0
+        Width = 127
+        Height = 21
+        CalAlignment = dtaLeft
+        Date = 37665.8079649306
+        Time = 37665.8079649306
+        DateFormat = dfLong
+        DateMode = dmUpDown
+        Kind = dtkDate
+        MaxDate = 2593224
+        MinDate = 2
+        ParseInput = False
+        TabOrder = 1
+        OnChange = EditNamePeopleChange
+        About = 'Version 1.4 for Delphi 6'
+        CalFont.Charset = DEFAULT_CHARSET
+        CalFont.Color = clWindowText
+        CalFont.Height = -11
+        CalFont.Name = 'MS Sans Serif'
+        CalFont.Style = []
+        ShowText = True
+        UpDownEnabled = True
+        UpDownVisible = True
+        DateTime = 37665.8079649306
+      end
+      object MyTime: TProfDateTimePicker
+        Left = 433
+        Top = 0
+        Width = 67
+        Height = 21
+        CalAlignment = dtaLeft
+        Date = 37665.8268193519
+        Time = 37665.8268193519
+        DateFormat = dfShort
+        DateMode = dmUpDown
+        Kind = dtkTime
+        ParseInput = False
+        TabOrder = 2
+        OnChange = MyTimeChange
+        About = 'Version 1.4 for Delphi 6'
+        CalFont.Charset = DEFAULT_CHARSET
+        CalFont.Color = clWindowText
+        CalFont.Height = -11
+        CalFont.Name = 'MS Sans Serif'
+        CalFont.Style = []
+        ShowText = True
+        UpDownEnabled = True
+        UpDownVisible = True
+        DateTime = 37665.8268193519
+      end
+      object ToolButton7: TToolButton
+        Left = 500
+        Top = 0
+        Width = 8
+        Caption = 'ToolButton7'
+        ImageIndex = 5
+        Style = tbsSeparator
+      end
+      object Panel1: TPanel
+        Left = 508
+        Top = 0
+        Width = 30
+        Height = 21
+        BevelOuter = bvNone
+        Caption = #1055#1086#1083':'
+        Color = clWhite
+        TabOrder = 7
+      end
+      object RadioButtonF: TRadioButton
+        Left = 538
+        Top = 0
+        Width = 35
+        Height = 21
+        Caption = #1078'.'
+        Checked = True
+        TabOrder = 3
+        TabStop = True
+        OnClick = EditNamePeopleChange
+      end
+      object RadioButtonM: TRadioButton
+        Left = 573
+        Top = 0
+        Width = 35
+        Height = 21
+        Caption = #1084'.'
+        TabOrder = 4
+        OnClick = EditNamePeopleChange
+      end
+    end
+  end
+  object CoolBar2: TCoolBar
+    Left = 0
+    Top = 28
+    Width = 623
+    Height = 28
+    AutoSize = True
+    BandBorderStyle = bsNone
+    Bands = <
+      item
+        Control = ToolBar2
+        ImageIndex = -1
+        MinHeight = 26
+        Width = 621
+      end>
+    Color = clWhite
+    EdgeOuter = esNone
+    FixedOrder = True
+    ParentColor = False
+    object ToolBar2: TToolBar
+      Left = 0
+      Top = 0
+      Width = 617
+      Height = 26
+      BorderWidth = 1
+      Caption = 'ToolBar1'
+      EdgeBorders = []
+      EdgeInner = esNone
+      EdgeOuter = esNone
+      Flat = True
+      Images = FormMainFSH.ImageList2
+      TabOrder = 0
+      object Panel4: TPanel
+        Left = 0
+        Top = 0
+        Width = 33
+        Height = 22
+        BevelOuter = bvNone
+        Caption = 'GMT:'
+        Color = clWhite
+        TabOrder = 6
+      end
+      object ComboGMT: TComboBox
+        Left = 33
+        Top = 0
+        Width = 93
+        Height = 21
+        Style = csDropDownList
+        ItemHeight = 13
+        TabOrder = 1
+        OnChange = EditNamePeopleChange
+        Items.Strings = (
+          '(GMT -12:00)'
+          '(GMT -11:00)'
+          '(GMT -10:00)'
+          '(GMT -09:00)'
+          '(GMT -08:00)'
+          '(GMT -07:00)'
+          '(GMT -06:00)'
+          '(GMT -05:00)'
+          '(GMT -04:00)'
+          '(GMT -03:30)'
+          '(GMT -03:00)'
+          '(GMT -02:00)'
+          '(GMT -01:00)'
+          '(GMT 00:00)'
+          '(GMT +01:00)'
+          '(GMT +02:00)'
+          '(GMT +03:00)'
+          '(GMT +03:30)'
+          '(GMT +04:00)'
+          '(GMT +04:30)'
+          '(GMT +05:00)'
+          '(GMT +05:45)'
+          '(GMT +06:00)'
+          '(GMT +06:30)'
+          '(GMT +07:00)'
+          '(GMT +08:00)'
+          '(GMT +09:00)'
+          '(GMT +09:30)'
+          '(GMT +10:00)'
+          '(GMT +11:00)'
+          '(GMT +12:00)'
+          '(GMT +13:00)')
+      end
+      object Panel2: TPanel
+        Left = 126
+        Top = 0
+        Width = 30
+        Height = 22
+        BevelOuter = bvNone
+        Caption = #1083'.'#1074'.:'
+        Color = clWhite
+        TabOrder = 4
+      end
+      object EditLetnee: TEdit
+        Left = 156
+        Top = 0
+        Width = 26
+        Height = 22
+        MaxLength = 3
+        ReadOnly = True
+        TabOrder = 3
+        Text = '0'
+        OnChange = EditNamePeopleChange
+      end
+      object UpDown1: TUpDown
+        Left = 182
+        Top = 0
+        Width = 15
+        Height = 22
+        Associate = EditLetnee
+        Min = -5
+        Max = 5
+        Position = 0
+        TabOrder = 2
+        Wrap = False
+      end
+      object ToolButton3: TToolButton
+        Left = 197
+        Top = 0
+        Width = 8
+        Caption = 'ToolButton3'
+        ImageIndex = 31
+        Style = tbsSeparator
+      end
+      object CheckBoxDolgota: TCheckBox
+        Left = 205
+        Top = 0
+        Width = 67
+        Height = 22
+        Caption = #1076#1086#1083#1075#1086#1090#1072':'
+        Checked = True
+        State = cbChecked
+        TabOrder = 5
+        OnClick = CheckBoxDolgotaClick
+      end
+      object EditDolgota: TEdit
+        Left = 272
+        Top = 0
+        Width = 26
+        Height = 22
+        MaxLength = 3
+        ReadOnly = True
+        TabOrder = 7
+        Text = '0'
+        OnChange = EditNamePeopleChange
+      end
+      object UpDownDolgota: TUpDown
+        Left = 298
+        Top = 0
+        Width = 15
+        Height = 22
+        Associate = EditDolgota
+        Min = -180
+        Max = 180
+        Position = 0
+        TabOrder = 0
+        Wrap = False
+      end
+      object Panel5: TPanel
+        Left = 313
+        Top = 0
+        Width = 26
+        Height = 22
+        BevelOuter = bvNone
+        Caption = '('#1075#1088'.)'
+        Color = clWhite
+        TabOrder = 8
+      end
+      object ToolButton13: TToolButton
+        Left = 339
+        Top = 0
+        Width = 8
+        Caption = 'ToolButton13'
+        ImageIndex = 29
+        Style = tbsSeparator
+      end
+      object ToolButton10: TToolButton
+        Left = 347
+        Top = 0
+        Cursor = crHandPoint
+        Hint = #1054#1095#1080#1089#1090#1080#1090#1100
+        Caption = 'ToolButton10'
+        ImageIndex = 27
+        ParentShowHint = False
+        ShowHint = True
+        OnClick = ToolButton10Click
+      end
+      object ToolButton6: TToolButton
+        Left = 370
+        Top = 0
+        Cursor = crHandPoint
+        Hint = #1054#1090#1082#1088#1099#1090#1100
+        Caption = 'ToolButton6'
+        ImageIndex = 1
+        ParentShowHint = False
+        ShowHint = True
+        OnClick = NOpenClick
+      end
+      object ToolButton8: TToolButton
+        Left = 393
+        Top = 0
+        Cursor = crHandPoint
+        Hint = #1057#1086#1093#1088#1072#1085#1080#1090#1100
+        Caption = 'ToolButton8'
+        ImageIndex = 2
+        ParentShowHint = False
+        ShowHint = True
+        OnClick = SaveClick
+      end
+      object ToolButton12: TToolButton
+        Left = 416
+        Top = 0
+        Width = 8
+        Caption = 'ToolButton9'
+        ImageIndex = 4
+        Style = tbsSeparator
+      end
+      object Sinxron: TCheckBox
+        Left = 424
+        Top = 0
+        Width = 151
+        Height = 22
+        Caption = #1054#1090#1086#1073#1088#1072#1078#1072#1090#1100' '#1074' '#1082#1072#1083#1077#1085#1076#1072#1088#1077
+        TabOrder = 9
+      end
+      object ToolButton9: TToolButton
+        Left = 575
+        Top = 0
+        Width = 8
+        Caption = 'ToolButton9'
+        ImageIndex = 3
+        Style = tbsSeparator
+      end
+      object ToolButtonRaschet: TToolButton
+        Left = 583
+        Top = 0
+        Cursor = crHandPoint
+        Hint = #1056#1072#1089#1095#1077#1090
+        Caption = 'ToolButton5'
+        ImageIndex = 9
+        ParentShowHint = False
+        ShowHint = True
+        OnClick = N12RaschetClick
+      end
+    end
+  end
+  object PaneFHmain: TPanel
+    Left = 0
+    Top = 359
+    Width = 623
+    Height = 19
+    Align = alBottom
+    Alignment = taLeftJustify
+    BevelOuter = bvNone
+    TabOrder = 2
+    object PaneFHscroll: TPanel
+      Left = 449
+      Top = 0
+      Width = 174
+      Height = 19
+      Align = alRight
+      Alignment = taLeftJustify
+      BevelOuter = bvNone
+      TabOrder = 0
+      object ProgressFH: TProgressBar
+        Left = 0
+        Top = 0
+        Width = 174
+        Height = 19
+        Align = alClient
+        Min = 0
+        Max = 100
+        TabOrder = 0
+      end
+    end
+    object PaneFH: TPanel
+      Left = 0
+      Top = 0
+      Width = 449
+      Height = 19
+      Align = alClient
+      Alignment = taLeftJustify
+      BevelOuter = bvLowered
+      TabOrder = 1
+    end
+  end
+  object SaveDialogPeople: TSaveDialog
+    DefaultExt = 'fsp'
+    Filter = '(*.fsp)|*.fsp'
+    Options = [ofOverwritePrompt, ofHideReadOnly, ofEnableSizing]
+    Left = 176
+    Top = 248
+  end
+  object OpenDialogPeople: TOpenDialog
+    Filter = '(*.fsp)|*.fsp'
+    Left = 176
+    Top = 120
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 176
+    Top = 152
+    object N1: TMenuItem
+      Caption = #1054#1090#1082#1088#1099#1090#1100'...'
+      ShortCut = 16463
+      OnClick = NOpenClick
+    end
+    object N2: TMenuItem
+      Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
+      ShortCut = 16467
+      OnClick = SaveClick
+    end
+    object N3: TMenuItem
+      Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1082#1072#1082'...'
+      ShortCut = 24659
+      OnClick = NSaveAsClick
+    end
+    object N4: TMenuItem
+      Caption = '-'
+    end
+    object N5: TMenuItem
+      Caption = #1056#1072#1089#1095#1077#1090
+      ShortCut = 13
+      OnClick = N12RaschetClick
+    end
+    object N21: TMenuItem
+      Caption = #1043#1086#1088#1086#1089#1082#1086#1087
+      Enabled = False
+      OnClick = N21Click
+    end
+    object N9: TMenuItem
+      Caption = '-'
+    end
+    object N10: TMenuItem
+      Caption = #1047#1072#1082#1088#1099#1090#1100' '#1086#1082#1085#1086
+      ShortCut = 16471
+      OnClick = N8CloseClick
+    end
+  end
+  object MainMenu1: TMainMenu
+    Left = 176
+    Top = 184
+    object N6: TMenuItem
+      Caption = #1060#1072#1081#1083
+      ShortCut = 46
+      object N17: TMenuItem
+        Caption = #1054#1095#1080#1089#1090#1080#1090#1100
+        ShortCut = 16430
+        OnClick = N17Click
+      end
+      object NOpen: TMenuItem
+        Caption = #1054#1090#1082#1088#1099#1090#1100'...'
+        ShortCut = 16463
+        OnClick = NOpenClick
+      end
+      object NSave: TMenuItem
+        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
+        ShortCut = 16467
+        OnClick = SaveClick
+      end
+      object NSaveAs: TMenuItem
+        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1082#1072#1082'...'
+        ShortCut = 24659
+        OnClick = NSaveAsClick
+      end
+      object N22: TMenuItem
+        Caption = '-'
+      end
+      object Print1: TMenuItem
+        Caption = 'Print...'
+        ShortCut = 16464
+        OnClick = Print1Click
+      end
+      object N14: TMenuItem
+        Caption = '-'
+      end
+      object N12: TMenuItem
+        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1082#1072#1082' '#1090#1077#1082#1089#1090'...'
+        Enabled = False
+        OnClick = N12Click
+      end
+      object N20: TMenuItem
+        Caption = #1043#1086#1088#1086#1089#1082#1086#1087
+        Enabled = False
+        OnClick = N20Click
+      end
+      object N13: TMenuItem
+        Caption = '-'
+      end
+      object N8Close: TMenuItem
+        Caption = #1047#1072#1082#1088#1099#1090#1100' '#1086#1082#1085#1086
+        ShortCut = 16471
+        OnClick = N8CloseClick
+      end
+    end
+    object N8: TMenuItem
+      Caption = #1056#1072#1089#1095#1077#1090
+      object N11: TMenuItem
+        Caption = #1056#1072#1089#1095#1077#1090
+        ShortCut = 13
+        OnClick = N11Click
+      end
+    end
+    object N16: TMenuItem
+      Caption = #1047#1074#1077#1079#1076#1099' '#1088#1086#1078#1076#1077#1085#1080#1103
+      Enabled = False
+      object N161: TMenuItem
+        Caption = #1041#1086#1083#1100#1096#1086#1081' '#1102#1085#1100' (60 '#1083#1077#1090')'
+        OnClick = N161Click
+      end
+      object N162: TMenuItem
+        Caption = #1052#1072#1083#1099#1081' '#1102#1085#1100' (20 '#1083#1077#1090')'
+        OnClick = N162Click
+      end
+      object N163: TMenuItem
+        Caption = #1047#1074#1077#1079#1076#1072' '#1075#1086#1076#1072
+        OnClick = N163Click
+      end
+      object N164: TMenuItem
+        Caption = #1047#1074#1077#1079#1076#1072' '#1084#1077#1089#1103#1094#1072
+        OnClick = N164Click
+      end
+      object N18: TMenuItem
+        Caption = #1047#1074#1077#1079#1076#1072' '#1076#1085#1103
+        OnClick = N18Click
+      end
+      object N19: TMenuItem
+        Caption = #1047#1074#1077#1079#1076#1072' '#1095#1072#1089#1072
+        OnClick = N19Click
+      end
+      object N7: TMenuItem
+        Caption = '-'
+      end
+      object N15: TMenuItem
+        Caption = #1050#1086#1084#1073#1080#1085#1072#1094#1080#1080' '#1079#1074#1077#1079#1076
+        OnClick = N15Click
+      end
+    end
+  end
+  object SaveDialogRtf: TSaveDialog
+    DefaultExt = 'txt'
+    Filter = '(*.txt)|*.txt'
+    Options = [ofOverwritePrompt, ofHideReadOnly, ofEnableSizing]
+    Left = 176
+    Top = 216
+  end
+  object PrintDialog1: TPrintDialog
+    Left = 176
+    Top = 280
+  end
+end
