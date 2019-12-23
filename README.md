@@ -15,8 +15,6 @@ This project was written in Delphi in 2003-2004. The whole code of the project, 
 
 * http://yandex.ru/yandsearch?text=FengShui%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0&lr=11514&csg=83%2C2865%2C18%2C17%2C0%2C0%2C0
 * https://www.google.com.hk/?gfe_rd=cr&ei=YlW7VN-EJMeL8AWwjIGgCg#q=FengShui+программа
-
-© Alexander Bukreev 2015
 _______________________________
 
 
@@ -37,7 +35,3 @@ _______________________________
 
 * http://yandex.ru/yandsearch?text=FengShui%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0&lr=11514&csg=83%2C2865%2C18%2C17%2C0%2C0%2C0
 * https://www.google.com.hk/?gfe_rd=cr&ei=YlW7VN-EJMeL8AWwjIGgCg#q=FengShui+программа
-
-© Alexander Bukreev 2015
-
-
